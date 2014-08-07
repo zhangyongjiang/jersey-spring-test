@@ -25,7 +25,7 @@ public class TestResource {
 		User user = new User();
 		user.setId(new SecureRandom().nextInt());
 		user.setName("test");
-		user.setUsername("username");
+		user.setUsername("username" + user.getId());
 
 		this.userManager.insertUserAndFailTransation(user);
 		return "uups";
@@ -38,7 +38,7 @@ public class TestResource {
 		User user = new User();
 		user.setId(new SecureRandom().nextInt());
 		user.setName("test");
-		user.setUsername("username");
+		user.setUsername("username" + user.getId());
 
 		this.userManager.insertUser(user);
 		return "test";

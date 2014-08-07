@@ -2,11 +2,20 @@
 
 package com.test.domain;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
+@Entity
 public class User {
 
+	@Id @Column
 	private int id;
+	
+	@Column(length=64)
 	private String username;
+	
+	@Column(length=64)
 	private String name;
 
 	public int getId() {

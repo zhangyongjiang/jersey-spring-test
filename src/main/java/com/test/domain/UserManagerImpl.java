@@ -24,7 +24,7 @@ public class UserManagerImpl implements UserManager {
 	@Override
 	public void insertUserAndFailTransation(User user) {
 		this.userDAO.insertUser(user);
-		throw new UnsupportedOperationException();
+		this.userDAO.insertUser(user);
 	}
 
 	@Override

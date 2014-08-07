@@ -25,7 +25,7 @@ public class UserDaoImpl extends JdbcDaoSupport implements UserDao {
 	@Override
 	public void insertUser(User user) {
 		this.getJdbcTemplate().update(
-				"INSERT INTO USERS (ID, USERNAME, NAME) VALUES (?, ?, ?)",
+				"INSERT INTO USER (ID, USERNAME, NAME) VALUES (?, ?, ?)",
 				new Object[] {
 						user.getId(),
 						user.getUsername(),
@@ -38,7 +38,7 @@ public class UserDaoImpl extends JdbcDaoSupport implements UserDao {
 	public User getUser(String username) {
 		User user = this.getJdbcTemplate().
 				queryForObject(
-						"SELECT * FROM USERS WHERE USERNAME = ?",
+						"SELECT * FROM USER WHERE USERNAME = ?",
 						new Object[] { username },
 						new UserMapper()
 						);
@@ -48,7 +48,7 @@ public class UserDaoImpl extends JdbcDaoSupport implements UserDao {
 	@Override
 	public List<User> getUsers() {
 		List<User> users = this.getJdbcTemplate().
-				query("SELECT * FROM USERS",
+				query("SELECT * FROM USER",
 						new UserMapper()
 						);
 		return users;
