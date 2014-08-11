@@ -2,8 +2,6 @@ package com.test.domain;
 
 import java.util.List;
 
-import javax.sql.DataSource;
-
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -16,10 +14,7 @@ import com.test.storage.interfaces.UserDao;
 public class UserManagerImpl extends ServiceBase implements UserManager {
 
 	private UserDao getUserDAO() {
-		DataSource dataSource = appContext.getBean(DataSource.class);
-		UserDaoImpl dao = new UserDaoImpl();
-		dao.setDataSource(dataSource );
-		return dao;
+		return getDao(UserDaoImpl.class);
 	}
 
 	@Override
